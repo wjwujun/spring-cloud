@@ -28,6 +28,7 @@
         <spring-cloud.version>Finchley.SR1</spring-cloud.version>
         <zipkin.version>2.10.1</zipkin.version>
         <log.version>2.9.1</log.version>
+        <spring-boot-admin>2.0.1</spring-boot-admin>
     </properties>
 
 
@@ -60,6 +61,18 @@
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-slf4j-impl</artifactId>
                 <version>${log.version}</version>
+            </dependency>
+            <!--服务监控,服务端-->
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-server</artifactId>
+                <version>${spring-boot-admin}</version>
+            </dependency>
+            <!--服务监控,客户端-->
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-client</artifactId>
+                <version>${spring-boot-admin}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
