@@ -26,6 +26,8 @@
 
         <!-- Spring Settings -->
         <spring-cloud.version>Finchley.SR1</spring-cloud.version>
+        <zipkin.version>2.10.1</zipkin.version>
+        <log.version>2.9.1</log.version>
     </properties>
 
 
@@ -37,6 +39,27 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.zipkin.java</groupId>
+                <artifactId>zipkin</artifactId>
+                <version>${zipkin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.zipkin.java</groupId>
+                <artifactId>zipkin-server</artifactId>
+                <version>${zipkin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.zipkin.java</groupId>
+                <artifactId>zipkin-autoconfigure-ui</artifactId>
+                <version>${zipkin.version}</version>
+            </dependency>
+            <!--启动zipkin的时候报错,查阅资料，原因是因为在竞争slfj的依赖，低版本中找不到实现类,引入以下依赖即可-->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j-impl</artifactId>
+                <version>${log.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -53,6 +76,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <build>
